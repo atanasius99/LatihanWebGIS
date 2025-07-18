@@ -22,6 +22,67 @@
         </style>
         <title></title>
     </head>
+	<!-- Tambahkan ini sebelum </body> -->
+<h3 style="margin-top: 30px;">Tren Perubahan Luas Kelas Tutupan Lahan</h3>
+<canvas id="lulcChart" width="600" height="300" style="margin-bottom: 50px;"></canvas>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('lulcChart');
+
+  const lulcChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['2014', '2019', '2024'], // Tahun
+      datasets: [
+        {
+          label: 'Lahan Terbangun',
+          data: [6000, 8000, 11000], // Ganti dengan data Anda
+          borderColor: 'red',
+          backgroundColor: 'red',
+          tension: 0.3
+        },
+        {
+          label: 'Hutan',
+          data: [18000, 17000, 16000], // Ganti dengan data Anda
+          borderColor: 'green',
+          backgroundColor: 'green',
+          tension: 0.3
+        },
+        {
+          label: 'Sawah',
+          data: [12000, 11500, 9000], // Ganti dengan data Anda
+          borderColor: 'blue',
+          backgroundColor: 'blue',
+          tension: 0.3
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Perubahan Luas Tutupan Lahan di Kabupaten Badung (ha)',
+          font: { size: 16 }
+        },
+        legend: {
+          position: 'bottom'
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: 'Luas (hektar)' }
+        },
+        x: {
+          title: { display: true, text: 'Tahun' }
+        }
+      }
+    }
+  });
+</script>
     <body>
         <div id="map">
         </div>
